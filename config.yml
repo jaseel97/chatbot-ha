@@ -1,0 +1,27 @@
+language: en
+
+pipeline:
+- name: "SpacyNLP"
+- name: "SpacyTokenizer"
+- name: "SpacyFeaturizer"
+- name: "RegexFeaturizer"
+- name: "CRFEntityExtractor"
+- name: "EntitySynonymMapper"
+- name: "SklearnIntentClassifier"
+# - name: "DucklingHTTPExtractor"
+#   url: "http://0.0.0.0:8000"
+#   locale: "en_GB"
+#   timezone: "Asia/Kolkata"
+#   dimensions: ["time"]
+
+policies:
+  - name: MemoizationPolicy
+  - name: MappingPolicy
+  - name: FormPolicy
+  - name: KerasPolicy
+    max_history: 5
+    epochs: 100
+  - name: "FallbackPolicy"
+    nlu_threshold: 0.4
+    core_threshold: 0.3
+    fallback_action_name: "action_default_fallback"

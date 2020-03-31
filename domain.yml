@@ -1,0 +1,109 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - thank
+  - chitchat
+  - search_property:
+      use_entities: []
+  
+actions:
+- utter_greet
+- utter_goodbye
+- utter_iamabot
+- utter_about
+- utter_welcome
+- utter_probe_continuation
+- utter_default
+- action_fetch_properties
+
+forms:
+- ha_form
+
+slots:
+  property_action:
+    type: unfeaturized
+  property_class:
+    type: unfeaturized
+  property_type:
+    type: unfeaturized
+  district:
+    type: unfeaturized
+  town:
+    type: unfeaturized
+
+entities:
+- property_action
+- property_type
+- property_class
+- district
+- town
+
+responses:
+  utter_greet:
+  - text: "Hello!"
+  - text: "Hey there!"
+  - text: "Hi!"
+
+  utter_goodbye:
+  - text: "Bye!"
+  - text: "Goodbye!"
+  - text: "See you later!"
+
+  utter_iamabot:
+  - text: "I am a bot."
+
+  utter_about:
+  - text: "I am a bot. How can I help you?"
+
+  utter_welcome:
+  - text: "No problem."
+  - text: "I'm happy to help!"
+  - text: "Always here to help!"
+
+  utter_probe_continuation:
+  - text: "\n\nWould you like to see more properties?"
+  - text: "\n\nWould you like to continue browsing properties?"
+
+  utter_default:
+  - text: "I'm sorry, I didn't get you."
+  - text: "Apologies, I didn't understand that."
+  - text: "Sorry, I didn't get that."
+  - text: "Sorry, what was that?"
+
+  utter_ask_property_action:
+  - text: "Are you going to rent, buy or lease the property?"
+  - text: "Do you want to rent the property or buy it? Or are you planning on leasing it?"
+
+  utter_ask_property_class:
+  - text: "What kind? Industrial, Commercial, Residential or Agricultural?"
+  - text: "Are you looking for Industrial property? Or is it Agricultural? Or Commercial maybe?"
+
+  utter_ask_property_type:
+  - text: "What are you looking for? Houses? Land? Or Buildings?"
+
+  utter_ask_district:
+  - text: Which district?
+
+  utter_ask_town:
+  - text: "Which town?"
+
+  utter_chitchat:
+  - text: "chitchat"
+
+  utter_form_accepted:
+  - text: "Searching for ads with type:{property_type} in {town}, {district}"
+
+  # utter_wrong_district:
+  # - text: "The district name you entered is not present in the database. Please check your spelling!"
+  # - text: "That district doesn't seem to be in the database, try again!"
+
+  # utter_wrong_town:
+  # - text: "That town doesn't seem to be present in the database. Check you spelling or try again with a nearby town!"
+  # - text: "Please check your spelling. That town is not present in our database. Maybe try again with a nearby town!"
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
